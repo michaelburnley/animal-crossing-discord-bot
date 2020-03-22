@@ -1,12 +1,14 @@
 require('dotenv').config();
 
 import cron from 'node-cron';
-import checkBirthday from './checkBirthday';
 import Discord from 'discord.js';
+import _ from 'lodash';
+import checkBirthday from './src/checkBirthday';
 
 const {
     DISCORD_BOT_TOKEN,
-    CHANNEL_NAME
+    CHANNEL_NAME,
+    CRON_TIME
 } = process.env;
 
 const client = new Discord.Client();
@@ -17,7 +19,10 @@ client.on('ready', () => {
     if (!channel) return console.log(`invalid channel name`);
     console.log(`Logged in as ${client.user.tag}!`);
 
-    cron.schedule(`0 8 * * *`, () => {
+    if (!CRON_TIME) return console.log(`No scheduled time to run.`)
+    const time = _.replace(CRON_TIME, /-/g, ` `);
+
+    cron.schedule(time, () => {
         checkBirthday(channel);
     });
 });
