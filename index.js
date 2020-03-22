@@ -17,7 +17,7 @@ client.on('ready', () => {
     if (!channel) return console.log(`invalid channel name`);
     console.log(`Logged in as ${client.user.tag}!`);
 
-    cron.schedule(`* * * * *`, () => {
+    cron.schedule(`0 8 * * *`, () => {
         checkBirthday(channel);
     });
 });
