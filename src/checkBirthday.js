@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import 'babel-polyfill';
 
-export default async (channel) => {
+export default (channel) => {
     const today = moment().format(`M/DD`);
     
     const current_birthdays = birthdays[today];
