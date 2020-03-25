@@ -7,6 +7,7 @@ Bot for checking Villager Birthdays in Animal Crossing!
   - Tag bot and enter a message with `#name` in it and your format will be set
   - e.g. `@VillagerBirthdays It's #name birthday today!`
 
+## Getting Started
 1. Add a .env file
 2. Add the following to the .env file
     - `DISCORD_BOT_TOKEN='bot token from https://discordapp.com/developers/'`
