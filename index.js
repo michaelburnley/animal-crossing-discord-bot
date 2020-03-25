@@ -56,7 +56,6 @@ client.on('message', (message) => {
     };
 
     message.channel.send(`Set format to: "${message_text}"`);
-    // checkBirthday(message.channel, cache)
 
 });
 
